@@ -1,6 +1,7 @@
 ## API Core Hosting Control Privoder
 
-License:  MIT License, Owner uGroup Development.
+"License:  MIT License, Owner uGroup Development."
+-----------------------------------------------------------------
 Librany:
 	1) RESTfull Server/Client;
 	2) MongoDB
