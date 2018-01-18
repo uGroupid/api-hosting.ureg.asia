@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-// require './vendor/autoload.php';
+require_once(__DIR__ ."/GDM/ISPConfig/SoapClient.php");
 Class ISPConfig_Controller extends CI_Controller{
 	public function __construct()
 	{
@@ -7,7 +7,7 @@ Class ISPConfig_Controller extends CI_Controller{
 	}
 	
 	public function ISPConfig_Testcase(){
-		return __DIR__;
+		return __DIR__.'/GDM/ISPConfig/';
 	}
 	
 }

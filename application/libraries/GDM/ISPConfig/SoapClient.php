@@ -1,6 +1,5 @@
 <?php
-namespace GDM\ISPConfig;
-
+require_once(__DIR__ ."/GDM/ISPConfig/AbstractSoapClient.php");
 class SoapClient extends AbstractSoapClient
 {
     public function login($username, $password)
