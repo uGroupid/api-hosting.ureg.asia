@@ -1,6 +1,5 @@
 <?php
 
-namespace GDM\ISPConfig;
 
 interface SoapClientInterface
 {
