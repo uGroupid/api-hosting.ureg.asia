@@ -1,5 +1,5 @@
 <?php
-require_once(APPPATH ."/SoapClientInterface.php");
+require_once("../SoapClientInterface.php");
 abstract class AbstractSoapClient implements SoapClientInterface
 {
     /**

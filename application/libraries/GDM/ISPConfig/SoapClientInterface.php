@@ -1,6 +1,4 @@
 <?php
-
-
 interface SoapClientInterface
 {
     public function login($username, $password);

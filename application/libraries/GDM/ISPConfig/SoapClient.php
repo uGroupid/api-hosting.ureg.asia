@@ -1,5 +1,5 @@
 <?php
-require_once(APPPATH ."/AbstractSoapClient.php");
+require_once("../AbstractSoapClient.php");
 class SoapClient extends AbstractSoapClient
 {
     public function login($username, $password)
