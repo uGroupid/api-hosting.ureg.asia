@@ -7,7 +7,7 @@ class Testcase extends ISPConfig_Controller {
 	}
 	
 	public function index(){
-		echo "hello";
+		echo $this->ISPConfig_Testcase();
 	}
 }
 
