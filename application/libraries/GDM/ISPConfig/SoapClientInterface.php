@@ -1,7 +1,4 @@
 <?php
-
-namespace GDM\ISPConfig;
-
 interface SoapClientInterface
 {
     public function login($username, $password);

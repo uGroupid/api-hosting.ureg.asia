@@ -1,6 +1,5 @@
 <?php
-namespace GDM\ISPConfig;
-
+include_once(__DIR__ . "/SoapClientInterface.php");
 abstract class AbstractSoapClient implements SoapClientInterface
 {
     /**
