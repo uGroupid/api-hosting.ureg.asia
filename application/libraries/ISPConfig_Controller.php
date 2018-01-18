@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 require_once(__DIR__ ."/GDM/ISPConfig/SoapClient.php");
+include_once(__DIR__ . "/GDM/ISPConfig/SoapClientInterface.php");
 Class ISPConfig_Controller extends CI_Controller{
 	public function __construct()
 	{

@@ -1,5 +1,5 @@
 <?php
-require_once("../AbstractSoapClient.php");
+include_once(__DIR__ . "/AbstractSoapClient.php");
 class SoapClient extends AbstractSoapClient
 {
     public function login($username, $password)
