@@ -7,9 +7,7 @@ Class ISPConfig_Controller extends CI_Controller{
 		ob_clean();
 	}
 	
-	public function ISPConfig_Testcase(){
-		return __DIR__.'/GDM/ISPConfig/';
-	}
+	
 	
 }
 

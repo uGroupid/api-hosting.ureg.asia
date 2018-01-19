@@ -8,6 +8,7 @@ class Testcase extends ISPConfig_Controller {
 	
 	public function index(){
 		echo $this->ISPConfig_Testcase();
+		
 	}
 }
 
