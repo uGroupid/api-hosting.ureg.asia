@@ -17,6 +17,11 @@ class Api extends REST_Controller {
 				api_message(05), 
 				api_message(06), 
 				api_message(07), 
+				api_message(08), 
+				api_message(09), 
+				api_message(10), 
+				api_message(11), 
+				api_message(12), 
 			);
 		$this->response($response);
 	}

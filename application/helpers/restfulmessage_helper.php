@@ -68,6 +68,24 @@ if(! function_exists('api_message')){
 					'msg' => 'Not authoritative access',
 				);
 				break;
+			case 10:
+				return array(
+					'code' => 10,
+					'msg' => 'Error Connect Server',
+				);
+				break;
+			case 11:
+				return array(
+					'code' => 11,
+					'msg' => 'Error Transaction Server',
+				);
+				break;
+			case 12:
+				return array(
+					'code' => 12,
+					'msg' => 'Server Command Syntax Error',
+				);
+				break;
 		}
 	}
 }
