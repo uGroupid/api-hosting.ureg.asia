@@ -6,7 +6,14 @@ class Api extends REST_Controller {
 		
 	}
 	public function index_get(){
-		$response = array('status_api' => api_message(00), );
+		$response = array(
+			'status_api' => 
+				api_message(00), 
+				api_message(01), 
+				api_message(02), 
+				api_message(03), 
+				api_message(04), 
+			);
 		$this->response($response);
 	}
 	
