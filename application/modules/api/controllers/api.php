@@ -8,9 +8,7 @@ class Api extends REST_Controller {
 	
 	public function index_get(){
 		$response = array(
-			'status_api' = > array(
-				api_message(00),
-			),
+			'status_api' = > array(''),
 		);
 		
 		$this->response($response);
