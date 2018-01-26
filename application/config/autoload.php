@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('Idna_convert','redis','mongo_db','template','trackback','curl','form_validation','pagination','database','session','parser','table','encrypt');
+$autoload['libraries'] = array('redis','mongo_db','session','encrypt');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('Idna_convert','redis','mongo_db','template','tra
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'template','form','validate','dom','core');
+$autoload['helper'] = array('url','core');
 
 
 /*
