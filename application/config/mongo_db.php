@@ -28,7 +28,7 @@
 $config['mongo_db']['active'] = 'uhosting';
 
 $config['mongo_db']['ureg_cpanel']['no_auth'] = FALSE;
-$config['mongo_db']['ureg_cpanel']['hostname'] = '192.168.1.221';
+$config['mongo_db']['ureg_cpanel']['hostname'] = 'localhost';
 $config['mongo_db']['ureg_cpanel']['port'] = '27017';
 $config['mongo_db']['ureg_cpanel']['username'] = 'uhosting';
 $config['mongo_db']['ureg_cpanel']['password'] = '112233fF';
