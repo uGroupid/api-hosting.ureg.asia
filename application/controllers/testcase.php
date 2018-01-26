@@ -8,9 +8,6 @@ class Testcase extends ISPConfig_Controller {
 		$this->consumer_ttl = CONSUMER_TTL();
 	}
 	
-	
-	
-	
 	public function index(){
 		$uid = "123";
 		$param = array(
@@ -29,13 +26,11 @@ class Testcase extends ISPConfig_Controller {
 		}
 	}
 	
-	
-	 
 	private function validate($token)
     {
         try {
             $decodeToken = $this->jwt->decode($token, $this->consumer_secret);
-            $ttl_time = strtotime($decodeToken->issuedAt);
+            $ttl_time = strtotime($decodeToken->expires_in);
             $now_time = strtotime(date(DATE_ISO8601, strtotime("now")));
             if(($now_time - $ttl_time) > $decodeToken->ttl) {
 				 return false;
@@ -57,12 +52,12 @@ class Testcase extends ISPConfig_Controller {
     }
 	private function Initialize_Token($uid,$param){
        $token = $this->jwt->encode(array(
-            'consumer_key' => $this->consumer_secret,
+            'key' => $this->consumer_secret,
             'uid' => $uid,
             'param' => $param,
-            'issuedAt' => date(DATE_ISO8601, strtotime("now")),
+            'expires_in' => date(DATE_ISO8601, strtotime("now")),
             'ttl' => $this->consumer_ttl,
-        ), $this->consumer_secret);
+        ), $this->consumer_key);
         return $token;
 	}
 		
