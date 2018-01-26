@@ -57,7 +57,7 @@ class Testcase extends ISPConfig_Controller {
             'param' => $param,
             'expires_in' => date(DATE_ISO8601, strtotime("now")),
             'ttl' => $this->consumer_ttl,
-        ), $this->consumer_key);
+        ), $this->consumer_secret);
         return $token;
 	}
 		
