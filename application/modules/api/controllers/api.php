@@ -9,10 +9,14 @@ class Api extends REST_Controller {
 		$response = array(
 			'status_api' => 
 				api_message(00), 
+				api_message(99), 
 				api_message(01), 
 				api_message(02), 
 				api_message(03), 
 				api_message(04), 
+				api_message(05), 
+				api_message(06), 
+				api_message(07), 
 			);
 		$this->response($response);
 	}

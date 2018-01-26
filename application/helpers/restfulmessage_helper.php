@@ -52,8 +52,20 @@ if(! function_exists('api_message')){
 				break;
 			case 07:
 				return array(
-					'code' => 06,
-					'msg' => 'Token vali expired',
+					'code' => 07,
+					'msg' => 'username do not exist',
+				);
+				break;
+			case 08:
+				return array(
+					'code' => 08,
+					'msg' => 'password do not exist',
+				);
+				break;
+			case 09:
+				return array(
+					'code' => 09,
+					'msg' => 'Not authoritative access',
 				);
 				break;
 		}
