@@ -27,18 +27,18 @@
 
 $config['mongo_db']['active'] = 'uhosting';
 
-$config['mongo_db']['ureg_cpanel']['no_auth'] = FALSE;
-$config['mongo_db']['ureg_cpanel']['hostname'] = 'localhost';
-$config['mongo_db']['ureg_cpanel']['port'] = '27017';
-$config['mongo_db']['ureg_cpanel']['username'] = 'uhosting';
-$config['mongo_db']['ureg_cpanel']['password'] = '112233fF';
-$config['mongo_db']['ureg_cpanel']['database'] = 'uhosting';
-$config['mongo_db']['ureg_cpanel']['db_debug'] = TRUE;
-$config['mongo_db']['ureg_cpanel']['return_as'] = 'array';
-$config['mongo_db']['ureg_cpanel']['write_concerns'] = (int)1;
-$config['mongo_db']['ureg_cpanel']['journal'] = TRUE;
-$config['mongo_db']['ureg_cpanel']['read_preference'] = NULL;
-$config['mongo_db']['ureg_cpanel']['read_preference_tags'] = NULL;
+$config['mongo_db']['uhosting']['no_auth'] = FALSE;
+$config['mongo_db']['uhosting']['hostname'] = 'localhost';
+$config['mongo_db']['uhosting']['port'] = '27017';
+$config['mongo_db']['uhosting']['username'] = 'uhosting';
+$config['mongo_db']['uhosting']['password'] = '112233fF';
+$config['mongo_db']['uhosting']['database'] = 'uhosting';
+$config['mongo_db']['uhosting']['db_debug'] = TRUE;
+$config['mongo_db']['uhosting']['return_as'] = 'array';
+$config['mongo_db']['uhosting']['write_concerns'] = (int)1;
+$config['mongo_db']['uhosting']['journal'] = TRUE;
+$config['mongo_db']['uhosting']['read_preference'] = NULL;
+$config['mongo_db']['uhosting']['read_preference_tags'] = NULL;
 
 // $config['mongo_db']['test']['no_auth'] = FALSE;
 // $config['mongo_db']['test']['hostname'] = 'localhost';
