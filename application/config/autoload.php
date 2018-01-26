@@ -64,7 +64,7 @@ $autoload['libraries'] = array('JWT','redis','mongo_db','session','encrypt');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','core');
+$autoload['helper'] = array('url','core','restfulmessage');
 
 
 /*
