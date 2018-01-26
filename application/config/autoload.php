@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('redis','mongo_db','session','encrypt');
+$autoload['libraries'] = array('JWT','redis','mongo_db','session','encrypt');
 
 
 /*
