@@ -22,7 +22,11 @@ class Testcase extends ISPConfig_Controller {
 		);
 		$param_json = json_encode($param,true);
 		$token = $this->Initialize_Token($uid,$param_json);
-		echo $token;
+		$validate_token = $this->validate($token);
+		if($validate_token==true){
+			$token_json = $this->decode($token);
+			var_dump($token_json);
+		}
 	}
 	
 	
