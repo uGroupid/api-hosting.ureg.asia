@@ -27,7 +27,7 @@ class Client extends REST_Controller {
 	
 	function __construct(){
 		parent::__construct();
-		
+		$this->load->controller('testcase','testcase_controller');
 		if(!empty($_GET['token'])){
 			$token = $_GET['token'];
 			$this->token = $token;
@@ -37,9 +37,12 @@ class Client extends REST_Controller {
 		}
 	}
 	public function index_get(){
+		$this->token = $this->testcase_controller->index();
 		$response = array('token'=>$this->token,);
 		$this->response($response);
 	}
+	
+	
 	
 }
 ?>
