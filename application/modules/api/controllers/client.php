@@ -37,7 +37,7 @@ class Client extends REST_Controller {
 		}
 	}
 	public function index_get(){
-		$response = array('');
+		$response = array('token'=>$this->token,);
 		$this->response($response);
 	}
 	
