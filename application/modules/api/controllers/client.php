@@ -27,8 +27,9 @@ class Client extends REST_Controller {
 	
 	function __construct($token){
 		parent::__construct();
-		$this->token = $token;
-		if(!$this->token){
+		if(!$token){
+			$this->token = $token;
+		}else{
 			$response = array('msg' => api_message(05),);
 			$this->response($response);
 		}
