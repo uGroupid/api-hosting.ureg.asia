@@ -26,7 +26,7 @@ class Client extends REST_Controller {
 	//////////////////////////////////
 	
 	function __construct($token){
-		// parent::__construct();
+		parent::__construct();
 		if(!$token){
 			$this->token = $token;
 		}else{
