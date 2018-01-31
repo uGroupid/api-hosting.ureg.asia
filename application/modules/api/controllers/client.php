@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
 class Client extends REST_Controller {
-	public $token ;
+	public $token = $_GET['token'];
 	public $username ;
 	public $passwords;
 	public $email;
@@ -25,8 +25,9 @@ class Client extends REST_Controller {
 	public $created_at;
 	//////////////////////////////////
 	
-	function __construct($token=''){
+	function __construct(){
 		parent::__construct();
+		
 		if(!empty($token)){
 			$this->token = $token;
 		}else{
