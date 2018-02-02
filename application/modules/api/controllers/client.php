@@ -24,7 +24,6 @@ class Client extends REST_Controller {
 	public $notes;
 	public $created_at;
 	//////////////////////////////////
-	
 	function __construct(){
 		parent::__construct();
 		$this->load->controller('testcase','testcase_controller');
