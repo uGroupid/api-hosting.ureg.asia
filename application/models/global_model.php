@@ -1,19 +1,22 @@
 <?php
 
 class Global_model extends CI_Model{
+	public $auth;
 	function __construct(){
 		parent::__construct();
-		// $this->load->driver('cache');
+		$this->load->driver('cache');
 		$this->consumer_key = CONSUMER_KEY();
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
+		$this->auth = false;
 	}
 	
 	public function query_global($sql){
      $query = $this->db->query($sql);
           return $query->result_array();
 	}
-	private function validate($token)
+	
+	public function validate($token)
     {
         try {
             $decodeToken = $this->jwt->decode($token, $this->consumer_secret);
@@ -28,7 +31,7 @@ class Global_model extends CI_Model{
             return false;
         }
     }
-	private function decode($token)
+	public function decode($token)
     {
         try{
             $decodeToken = $this->jwt->decode($token, $this->consumer_secret);
@@ -37,11 +40,17 @@ class Global_model extends CI_Model{
             return false;
         }
     }
-	private function Initialize_Token($uid,$param){
+	public function Initialize_Token($uid,$param){
+		if(isset($uid)){
+			if(!empty($uid)){
+				$this->auth = true;
+			}
+		}
        $token = $this->jwt->encode(array(
             'key' => $this->consumer_secret,
             'uid' => $uid,
             'param' => $param,
+            'auth' => $this->auth,
             'expires_in' => date(DATE_ISO8601, strtotime("now")),
             'ttl' => $this->consumer_ttl,
         ), $this->consumer_secret);
