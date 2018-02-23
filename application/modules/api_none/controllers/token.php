@@ -1,18 +1,43 @@
-<?php
-
-class Global_model extends CI_Model{
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require APPPATH . '/libraries/REST_Controller.php';
+class Token extends REST_Controller {
 	function __construct(){
 		parent::__construct();
-		// $this->load->driver('cache');
+		$this->load->model('global_model', 'GlobalMD');	
 		$this->consumer_key = CONSUMER_KEY();
 		$this->consumer_secret = CONSUMER_SECRET();
 		$this->consumer_ttl = CONSUMER_TTL();
 	}
-	
-	public function query_global($sql){
-     $query = $this->db->query($sql);
-          return $query->result_array();
+	public function index_post(){
+		$uid = "123";
+		$param = array(
+			'full_name' => 'handesk',
+			'age' => 26,
+			'addr' => '132/62 Cầu Diễn - Minh Khai - Quận Bắc Từ Liêm - Hà Nội ',
+			'phone' => '093-233-7122',
+			'auth'=> false,
+		);
+		$param_json = json_encode($param,true);
+		$token = $this->GlobalMD->Initialize_Token($uid,$param_json);
+		$response = array('data' => $param_json, );
+		$this->response($response);
 	}
+	
+	public function check_get(){
+		$response = array('');
+		$this->response($response);
+	}
+	
+	public function create_get(){
+		$response = array('');
+		$this->response($response);
+	}
+	
+	public function info_get(){
+		$response = array('');
+		$this->response($response);
+	}
+	
 	private function validate($token)
     {
         try {
@@ -47,22 +72,5 @@ class Global_model extends CI_Model{
         ), $this->consumer_secret);
         return $token;
 	}
-	function getRows($params = array()){
-        $this->db->select('*');
-        $this->db->from('hitek_jobs_domain_notify');
-        $this->db->order_by('id','desc');
-		$this->db->where('epp', 0);
-        if(array_key_exists("start",$params) && array_key_exists("limit",$params)){
-            $this->db->limit($params['limit'],$params['start']);
-        }elseif(!array_key_exists("start",$params) && array_key_exists("limit",$params)){
-            $this->db->limit($params['limit']);
-        }
-        $query = $this->db->get();
-        
-        return ($query->num_rows() > 0)?$query->result_array():FALSE;
-    }
-	
-/////////////////// End Noi dung ////////////
-
 }
 ?>

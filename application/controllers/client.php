@@ -24,22 +24,31 @@ class Client extends REST_Controller {
 	public $notes;
 	public $created_at;
 	//////////////////////////////////
+	
 	function __construct(){
 		parent::__construct();
-		$this->load->controller('testcase','testcase_controller');
+		// $this->load->controller('testcase','testcase_controller');
 		if(!empty($_GET['token'])){
 			$token = $_GET['token'];
 			$this->token = $token;
 		}else{
-			$response = array('msg' => api_message(05),);
+			$response = array('msg' =>api_message(05),);
 			$this->response($response);
 		}
 	}
-	public function index_get(){
-		$this->token = $this->testcase_controller->index();
-		$response = array('token'=>$this->token,);
-		$this->response($response);
+	
+	public function add_post(){
+		
 	}
+	
+	public function edit_post(){
+		
+	}
+	
+	public function del_post(){
+		
+	}
+	
 	
 	
 	
