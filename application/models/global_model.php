@@ -10,7 +10,25 @@ class Global_model extends CI_Model{
 		$this->consumer_ttl = CONSUMER_TTL();
 		$this->auth = false;
 	}
+	private function responses_msg($code=00){
+		$code = "$code";
+		$response =  $this->mongo_db->select('code,message')->where(array('code' => "$code"))->get('conf_responses');
+		if(!empty($response)){
+			return $response[0];
+		}else{
+			return $response;
+		}
+		
+	}
 	
+	public function msg($code=00){
+		$msg = $this->responses_msg($code);
+		if(!empty($msg)){
+			return $msg;
+		}else{
+			return  $this->responses_msg(2000);
+		}
+	}
 	public function query_global($sql){
      $query = $this->db->query($sql);
           return $query->result_array();

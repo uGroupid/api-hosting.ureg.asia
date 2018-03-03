@@ -4,35 +4,34 @@ class Token extends REST_Controller {
 	public $uid;
 	public $token;
 	public $param;
-	
+	public $username;
+	public $password;
+	public $message;
 	function __construct(){
 		parent::__construct();
 		$this->load->model('global_model', 'GlobalMD');	
 		$this->uid = null;
 		$this->token = null;
 		$this->param  = null;
+		$this->username = null;
+		$this->password = '';
+		$this->message = null;
+		
 	}
+	
 	public function index_get(){
-		if(isset($_GET['param'])){
-			if(!empty($_GET['param'])){
-				if(isset($_GET['param']['username']) || !empty($_GET['param']['username'])){
-					if(isset($_GET['param']['password']) || !empty($_GET['param']['password'])){
-						$this->uid = "123";
-						$this->param  = array(
-							'full_name' => 'handesk',
-							'age' => 26,
-							'addr' => '132/62 Cầu Diễn - Minh Khai - Quận Bắc Từ Liêm - Hà Nội ',
-							'phone' => '093-233-7122',
-							'auth',
-						);
-					}
-				}
+		$core_private  = new Core_Private;
+		if(isset($_GET['username']) || !empty($_GET['username'])){
+			if(isset($_GET['password']) || !empty($_GET['password'])){
+				$this->username = $_GET['username'];
+				$this->password = $_GET['password'];
+				$this->param = $core_private->Token_Create($this->username,$this->password);
 			}
 		}
-		$param_json = json_encode($this->param,true);
-		$this->token = $this->GlobalMD->Initialize_Token($this->uid,$param_json);
 		$response = array(
-			'data' => $this->token
+			'result' => array(
+				'message' => $this->GlobalMD->msg(2001),
+			),
 		);
 		$this->response($response);
 	}
@@ -63,6 +62,31 @@ class Token extends REST_Controller {
 		$this->response($response);
 	}
 	
-	
+}
+
+class Core_Private extends MY_Controller {
+	public $username;
+	public $password;
+	function __construct()
+	{
+		parent::__construct();
+		$config =  array('server' => "http://id.ugroup.asia");
+		$this->rest->initialize($config);
+		$this->username = null;
+		$this->password = null;
+		
+	}
+	public function Token_Create($username=null,$password=null){
+		$this->username = $username;
+		$this->password = $password;
+		$param = array(
+			'param' => json_encode(array(
+				'username' => $this->username,
+				'password' => $this->password,
+			)),
+		);
+		$response = $this->rest->get('token/create',$param);
+		return $response;
+	}
 }
 ?>
